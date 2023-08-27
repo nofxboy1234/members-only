@@ -1,4 +1,5 @@
 Logged in user: <%= current_user.email %><br><br>
+<%= button_to 'Sign out', destroy_user_session_path, method: :delete %><br><br>
 <%= top_title %>
 <ul>
   <% @posts.each do |post| %>
