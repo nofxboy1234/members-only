@@ -1,0 +1,11 @@
+<ul>
+  <% @posts.each do |post| %>
+    <li>
+      <div><%= post.title %></div>
+      <div><%= post.body %></div>
+      <% if user_logged_in? %>
+        <div><%= post.user.email %></div>
+      <% end %>
+    </li>
+  <% end %>
+</ul>
