@@ -1,14 +1,11 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create]
-  # before_action :require_login, only: [:new, :create]
 
   def index
-    # binding.pry
     @posts = Post.all
   end
 
   def new
-    # @user = User.find(params[:user_id])
     @user = current_user
     @post = Post.new
   end
@@ -30,12 +27,4 @@ class PostsController < ApplicationController
   def post_params
     params.require(:post).permit(:title, :body)
   end
-
-  # def require_login
-  #   unless user_signed_in?
-  #     # Get current action?
-  #     flash[:error] = 'You must be logged in to do this!'
-  #     redirect_to posts
-  #   end
-  # end
 end
