@@ -1,12 +1,15 @@
-Logged in user: <%= current_user.email %><br><br>
-<%= button_to 'Sign out', destroy_user_session_path, method: :delete %><br><br>
+<% if user_signed_in? %>
+  Logged in user: <%= current_user.email %><br><br>
+  <%= button_to 'Sign out', destroy_user_session_path, method: :delete %><br><br>
+<% end %>
+
 <%= top_title %>
 <ul>
   <% @posts.each do |post| %>
     <li>
       <div><%= post.title %></div>
       <div><%= post.body %></div>
-      <% if user_logged_in? %>
+      <% if user_signed_in? %>
         <div><%= post.user.email %></div>
       <% end %>
     </li>

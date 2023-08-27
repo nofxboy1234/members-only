@@ -73,3 +73,5 @@ end
 
 gem "devise", "~> 4.9"
 gem 'responders'
+
+gem 'pry-byebug'

@@ -1,8 +1,9 @@
 class PostsController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, only: [:new, :create]
   before_action :require_login, only: [:new, :create]
 
   def index
+    # binding.pry
     @posts = Post.all
   end
 
